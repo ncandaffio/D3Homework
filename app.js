@@ -143,7 +143,7 @@ function renderAxes(newXScale, yAxis) {
 
 // function used for updating circles group with a transition to
 // new circles
-function renderCircles(circlesGroup, newXScale, chosenXaxis) {
+function renderCircles(circlesGroup, newXScale, chosenXAxis) {
 
   circlesGroup.transition()
     .duration(1000)
@@ -201,20 +201,6 @@ d3.csv("index.csv", function(err, data) {
 
   // Create y scale function
   var xLinearScale = yScale(data, chosenYAxis);
-///////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   // Create initial axis functions
   var bottomAxis = d3.axisBottom(xLinearScale);
@@ -236,7 +222,7 @@ d3.csv("index.csv", function(err, data) {
     .enter()
     .append("circle")
     .attr("cx", d => xLinearScale(d[chosenXAxis]))
-    .attr("cy", d => yLinearScale(d.num_hits))
+    .attr("cy", d => yLinearScale(dchosenYAxis))
     .attr("r", 20)
     .attr("fill", "pink")
     .attr("opacity", ".5");
@@ -251,6 +237,22 @@ d3.csv("index.csv", function(err, data) {
     .attr("value", "hair_length") // value to grab for event listener
     .classed("active", true)
     .text("Hair Metal Ban Hair Length (inches)");
+/////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   var albumsLabel = labelsGroup.append("text")
     .attr("x", 0)
